@@ -9,19 +9,29 @@ help of Wine.
 import os
 import sys
 import glob
-import numpy as np
 import copy
 import cv2
 import subprocess
-from PIL import Image
-from ExifUtils import *
 import exifread
 import warnings
+import numpy as np
+
+from PIL import Image
+from ExifUtils import *
 
 startup_info = None
 if sys.platform == "win32":
     startup_info = subprocess.STARTUPINFO()
     startup_info.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+elif sys.platform == "linux":
+    from Check_Wine_Installed import check_wine_installed
+
+    if not check_wine_installed():
+        print(
+            "Please install and configure `wine` before continuing: "
+            "https://wiki.winehq.org/Wine_Installation_and_Configuration"
+        )
+        exit(1)
 
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
@@ -165,7 +175,10 @@ def Survey3_Convert_RAW_to_Tiff(infolder, outfolder, wb):
                 cv2.imwrite(outfolder + outputfilename, color)
                 file_index = count * 2 - 1 if first_files_rawjpg else count - 1
                 ExifUtils.copy_simple(
-                    infiles[file_index], outfolder + outputfilename, startup_info
+                    inphoto=infiles[file_index],
+                    outphoto=outfolder + outputfilename,
+                    startup_info=startup_info,
+                    prependcmd=["wine"] if sys.platform == "linux" else [],
                 )
                 count += 1
                 print()

@@ -14,11 +14,11 @@ import os
 class ExifUtils:
 
     @staticmethod
-    def copy_simple(inphoto, outphoto, startup_info):
+    def copy_simple(inphoto, outphoto, startup_info, prependcmd=[]):
         mod_path = os.path.dirname(os.path.realpath(__file__))
         exifout = subprocess.run(
             [
-                "wine",
+                *prependcmd,
                 mod_path + os.sep + r"exiftool.exe",
                 r"-overwrite_original_in_place",
                 r"-tagsFromFile",
@@ -34,7 +34,7 @@ class ExifUtils:
 
         data = subprocess.run(
             args=[
-                "wine",
+                *prependcmd,
                 mod_path + os.sep + r"exiftool.exe",
                 "-m",
                 r"-ifd0:imagewidth",
