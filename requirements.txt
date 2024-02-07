@@ -1,0 +1,8 @@
+glob2
+numpy
+opencv-contrib-python
+Pillow
+ExifRead
+matplotlib
+imutils
+rasterio
