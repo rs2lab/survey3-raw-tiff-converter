@@ -18,7 +18,9 @@ More info about the configuration is on the [official website](https://mapir.git
 
 ### How to use?
 
-First, create two new directories to manage the processing of the files named `inFolder` and `outFolder`. After that, make sure you run the following command inside the environment created in the configuration section:
+First, create two new directories to manage the processing of the files named `inFolder` and `outFolder`. Inside the `inFolder` you should set the images taken with the Mapir Survey 3 camera to be converted to the TIFF format.
+
+After that, make sure you run the following command inside the environment created in the configuration section:
 
 ```bash
 python Convert_Survey3_RAW_to_Tiff.py $(pwd)/inFolder $(pwd)/outFolder
