@@ -16,7 +16,8 @@ class ExifUtils:
     @staticmethod
     def copy_simple(inphoto, outphoto, startup_info, prependcmd=[]):
         mod_path = os.path.dirname(os.path.realpath(__file__))
-        exifout = subprocess.run(
+
+        subprocess.run(
             [
                 *prependcmd,
                 mod_path + os.sep + r"exiftool.exe",
@@ -30,9 +31,9 @@ class ExifUtils:
             stderr=subprocess.PIPE,
             stdin=subprocess.PIPE,
             startupinfo=startup_info,
-        ).stderr.decode("utf-8")
+        )
 
-        data = subprocess.run(
+        subprocess.run(
             args=[
                 *prependcmd,
                 mod_path + os.sep + r"exiftool.exe",
@@ -45,4 +46,4 @@ class ExifUtils:
             stderr=subprocess.PIPE,
             stdin=subprocess.PIPE,
             startupinfo=startup_info,
-        ).stderr.decode("utf-8")
+        )
