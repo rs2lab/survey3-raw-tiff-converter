@@ -23,7 +23,7 @@ First, create two new directories to manage the processing of the files named `i
 After that, make sure you run the following command inside the environment created in the configuration section:
 
 ```bash
-python Convert_Survey3_RAW_to_Tiff.py $(pwd)/inFolder $(pwd)/outFolder
+python Convert_Survey3_RAW_to_Tiff.py "$(pwd)/inFolder" "$(pwd)/outFolder"
 ```
 
 The command above was meant to be executed on a GNU/Linux based systems, for the respective commands when running on Windows see more info on the [official website](https://mapir.gitbook.io/mapir-scripts/survey3-cameras/convert-raw+jpg-to-tiff).
