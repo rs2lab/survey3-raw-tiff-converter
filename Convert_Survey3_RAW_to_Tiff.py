@@ -286,7 +286,9 @@ def main():
             inf = sys.argv[2]
             outf = sys.argv[3]
         else:
-            sys.exit("Improper formatting of commandline arguments.")
+            sys.exit("Error: Improper formatting of commandline arguments.")
+    else:
+        sys.exit("Error: No commandline arguments.")
 
     if not os.path.exists(inf):
         sys.exit("Input file path does not exist or improperly formatted.")
