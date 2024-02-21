@@ -29,6 +29,6 @@ python Convert_Survey3_RAW_to_Tiff.py "$(pwd)/inFolder" "$(pwd)/outFolder"
 On Windows:
 
 ```powershell
-python "Convert_Survey3_RAW_to_Tiff.py" "%~dp0\inFolder" "%~dp0\outFolder"
+py "Convert_Survey3_RAW_to_Tiff.py" "%~dp0\inFolder" "%~dp0\outFolder"
 ```
 More info on the [official website (convert raw to tiff)](https://mapir.gitbook.io/mapir-scripts/survey3-cameras/convert-raw+jpg-to-tiff).
